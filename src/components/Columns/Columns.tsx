@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import { Fragment, useContext } from "react";
 import { TodosContext } from "../../context/todosContext";
 import { EmptyColumnsCont, WithColomnsCont } from "../styles/Columns/Columns";
 import Column from "../Column/Column";

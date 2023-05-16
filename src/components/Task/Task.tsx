@@ -1,4 +1,3 @@
-import React from "react";
 import { StyledTask } from "../styles/Task/Task";
 
 function Task({ task }: { task: any }) {

@@ -113,7 +113,7 @@ const ContextProvider = ({ children }: any) => {
   };
 
   return (
-    <TodosContext.Provider value={{ columns }}>
+    <TodosContext.Provider value={{ columns, addColumn }}>
       {children}
     </TodosContext.Provider>
   );
