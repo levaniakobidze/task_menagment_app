@@ -3,6 +3,8 @@ import { GlobalStyles } from "./components/styles/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { LightTheme, DarkTheme } from "./components/styles/Theme";
 import Button from "./components/Button/Button";
+import Header from "./components/Header/Header";
+import Columns from "./components/Columns/Columns";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -16,12 +18,17 @@ function App() {
       <Fragment>
         <ThemeProvider theme={theme === "light" ? LightTheme : DarkTheme}>
           <GlobalStyles />
+          <Header />
+          <Columns />
           <Button
-            type={"destructive"}
-            size={"l"}
-            width={"255px"}
-            height={"48px"}
-            onClick={themeToggler}></Button>
+            disabled={false}
+            width={"200px"}
+            height={"40px"}
+            size={"s"}
+            type={"primary"}
+            onClick={themeToggler}>
+            toggle
+          </Button>
         </ThemeProvider>
       </Fragment>
     </>

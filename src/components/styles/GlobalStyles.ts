@@ -12,6 +12,5 @@ export const GlobalStyles = createGlobalStyle`
   body{
     width: 100%;
     background: ${(props: any) => props.theme.colors.background.secondary};
-
   }
 `;

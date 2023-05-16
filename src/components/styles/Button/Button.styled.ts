@@ -16,8 +16,8 @@ export const StyledButton = styled.button<ButtonProps>`
       ? props.theme.colors.buttons.secondary
       : props.type === "destructive" && props.theme.colors.buttons.destructive};
   height: ${(props) => props.height};
-  width: 100%;
-  max-width: ${(props) => props.width};
+  /* width: 100%; */
+  width: ${(props) => props.width};
   color: ${(props: any) =>
     props.type === "secondary" ? props.theme.colors.buttons.primary : "#fff"};
   border: 0;

@@ -1,8 +1,12 @@
 export const LightTheme = {
   colors: {
     background: {
-      primary: "#fff",
+      primary: "#FFFFFF",
       secondary: "#E4EBFA",
+    },
+    fonts: {
+      primary: "#000112",
+      secondary: "#828FA3",
     },
     buttons: {
       primary: "#635FC7",
@@ -18,14 +22,18 @@ export const LightTheme = {
 export const DarkTheme = {
   colors: {
     background: {
-      primary: "#20212C",
-      secondary: "#2B2C37",
+      primary: "#2B2C37",
+      secondary: "#20212C",
+    },
+    fonts: {
+      primary: "#FFFFFF",
+      secondary: "#828FA3",
     },
     buttons: {
       primary: "#635FC7",
       primary_hover: "#A8A4FF",
-      secondary: "#fff",
-      secondary_hover: "#fff",
+      secondary: "#FFFFFF",
+      secondary_hover: "#FFFFFF",
       destructive: "#EA5555",
       destructive_hover: "#FF9898",
     },
