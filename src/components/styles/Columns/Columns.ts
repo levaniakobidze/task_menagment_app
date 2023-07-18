@@ -41,7 +41,12 @@ export const ColumnHeader = styled.div`
   div {
     width: 15px;
     height: 15px;
-    background-color: #49c4e5;
+    background-color: ${(props: { colName: string }) =>
+      props.colName === "Doing"
+        ? "#8471F2"
+        : props.colName === "Done"
+        ? "#67E2AE"
+        : "#49c4e5"};
     border-radius: 50%;
   }
   p {
@@ -59,4 +64,24 @@ export const ColumnHeader = styled.div`
 export const TasksList = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+export const Empty = styled.div`
+  min-height: 100vh;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    color: ${({ theme }) => theme.colors.fonts.secondary};
+    text-align: center;
+    /* Heading (L) */
+    font-family: Plus Jakarta Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 25px;
+  }
 `;

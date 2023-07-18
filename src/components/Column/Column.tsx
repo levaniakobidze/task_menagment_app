@@ -8,7 +8,7 @@ import Task from "../Task/Task";
 function Column({ column }: { column: any }) {
   return (
     <StyledColumn>
-      <ColumnHeader>
+      <ColumnHeader colName={column.column}>
         <div></div>
         <p>{column.column}</p>
       </ColumnHeader>
