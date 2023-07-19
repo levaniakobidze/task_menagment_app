@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledTask = styled.div`
   width: 100%;
+  max-width: 280px;
   background-color: ${(props) => props.theme.colors.background.primary};
   padding: 23px 16px;
   margin-top: 24px;
