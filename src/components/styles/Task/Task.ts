@@ -53,7 +53,6 @@ export const TaskModalInner = styled.div`
   border-radius: 10px;
   h3 {
     color: ${({ theme }) => theme.colors.fonts.primary};
-    /* Heading (L) */
     font-family: Plus Jakarta Sans;
     font-size: 18px;
     font-style: normal;
@@ -63,7 +62,6 @@ export const TaskModalInner = styled.div`
   p {
     color: ${({ theme }) => theme.colors.fonts.secondary};
     margin-top: 24px;
-    /* Body (L) */
     font-family: Plus Jakarta Sans;
     font-size: 13px;
     font-style: normal;
