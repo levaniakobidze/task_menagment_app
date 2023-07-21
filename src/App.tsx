@@ -9,9 +9,10 @@ import { TodosContext } from "./context/todosContext";
 import TaskModal from "./components/Modals/TaskModal/TaskModal";
 import { Empty } from "../src/components/styles/Columns/Columns";
 import SideBar from "./components/SideBar/SideBar";
+import AddBoardModal from "./components/Modals/AddBoardModal/AddBoardModal";
 
 function App() {
-  const { selectedTask, setSelectedTask, columns } = useContext(TodosContext);
+  const { selectedTask, showAddBoardModal, columns } = useContext(TodosContext);
   const [theme, setTheme] = useState("light");
   const themeToggler = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
@@ -41,6 +42,7 @@ function App() {
             </Empty>
           )}
           {selectedTask && <TaskModal />}
+          {showAddBoardModal && <AddBoardModal />}
           <Button
             disabled={false}
             width={"200px"}

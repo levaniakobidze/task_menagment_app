@@ -4,6 +4,7 @@ export const TodosContext = createContext<any | null>(null);
 
 const ContextProvider = ({ children }: any) => {
   const [selectedTask, setSelectedTask] = useState(false);
+  const [showAddBoardModal, setShowAddBoardModal] = useState(false);
   const [columns, setColumns] = useState([
     {
       boradId: 1,
@@ -56,7 +57,14 @@ const ContextProvider = ({ children }: any) => {
 
   return (
     <TodosContext.Provider
-      value={{ columns, addColumn, selectedTask, setSelectedTask }}>
+      value={{
+        columns,
+        addColumn,
+        selectedTask,
+        setSelectedTask,
+        showAddBoardModal,
+        setShowAddBoardModal,
+      }}>
       {children}
     </TodosContext.Provider>
   );

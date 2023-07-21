@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { SideBarMenu, SideBarStyled } from "../styles/SideBar/SideBar";
+import { TodosContext } from "../../context/todosContext";
 
 const SideBar = () => {
+  const { setShowAddBoardModal } = useContext(TodosContext);
   return (
     <SideBarStyled>
       <h3>ALL BOARDS (8)</h3>
@@ -21,7 +24,7 @@ const SideBar = () => {
           </svg>
           <p>+ Create New Board</p>
         </li>
-        <h4>
+        <h4 onClick={() => setShowAddBoardModal(true)}>
           <svg
             width="16"
             height="16"
