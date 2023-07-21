@@ -8,6 +8,7 @@ import Columns from "./components/Columns/Columns";
 import { TodosContext } from "./context/todosContext";
 import TaskModal from "./components/Modals/TaskModal/TaskModal";
 import { Empty } from "../src/components/styles/Columns/Columns";
+import SideBar from "./components/SideBar/SideBar";
 
 function App() {
   const { selectedTask, setSelectedTask, columns } = useContext(TodosContext);
@@ -22,6 +23,7 @@ function App() {
         <ThemeProvider theme={theme === "light" ? LightTheme : DarkTheme}>
           <GlobalStyles />
           <Header />
+          <SideBar></SideBar>
           {columns.length ? (
             <Columns />
           ) : (

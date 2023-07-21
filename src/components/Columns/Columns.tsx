@@ -23,10 +23,10 @@ const Columns = () => {
         </EmptyColumnsCont>
       ) : (
         <WithColomnsCont>
-          {columns &&
+          {/* {columns &&
             columns.map((column: any, index: number) => {
               return <Column column={column} key={index} />;
-            })}
+            })} */}
         </WithColomnsCont>
       )}
     </Fragment>
