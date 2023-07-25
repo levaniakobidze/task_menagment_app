@@ -5,11 +5,11 @@ import Column from "../Column/Column";
 import Button from "../Button/Button";
 
 const Columns = () => {
-  const { columns } = useContext(TodosContext);
+  const { boards, selectedBoard } = useContext(TodosContext);
 
   return (
     <Fragment>
-      {!columns ? (
+      {!boards[selectedBoard].columns ? (
         <EmptyColumnsCont>
           <p>This board is empty. Create a new column to get started.</p>
           <Button
@@ -23,10 +23,10 @@ const Columns = () => {
         </EmptyColumnsCont>
       ) : (
         <WithColomnsCont>
-          {/* {columns &&
-            columns.map((column: any, index: number) => {
+          {boards[selectedBoard].columns &&
+            boards[selectedBoard].columns?.map((column: any, index: number) => {
               return <Column column={column} key={index} />;
-            })} */}
+            })}
         </WithColomnsCont>
       )}
     </Fragment>

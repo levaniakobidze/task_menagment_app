@@ -5,10 +5,11 @@ export const TodosContext = createContext<any | null>(null);
 const ContextProvider = ({ children }: any) => {
   const [selectedTask, setSelectedTask] = useState(false);
   const [showAddBoardModal, setShowAddBoardModal] = useState(false);
-  const [columns, setColumns] = useState([
+  const [selectedBoard, setSelectedBoard] = useState(0);
+  const [boards, setBoards] = useState([
     {
       boradId: 1,
-      board_name: "first board",
+      board_name: "first boardsss",
       columns: [
         {
           columnId: 1,
@@ -50,6 +51,8 @@ const ContextProvider = ({ children }: any) => {
     },
   ]);
 
+  console.log(boards[selectedBoard]);
+
   // const [columns, setColumns] = useState<any>([]);
   const addColumn = (newColumn: any) => {
     // setColumns([...columns, newColumn]);
@@ -58,12 +61,15 @@ const ContextProvider = ({ children }: any) => {
   return (
     <TodosContext.Provider
       value={{
-        columns,
+        boards,
+        setBoards,
         addColumn,
         selectedTask,
         setSelectedTask,
         showAddBoardModal,
         setShowAddBoardModal,
+        selectedBoard,
+        setSelectedBoard,
       }}>
       {children}
     </TodosContext.Provider>

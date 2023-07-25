@@ -8,7 +8,8 @@ function Button(props: any) {
       size={props.size}
       type={props.type}
       disabled={props.disabled}
-      onClick={props.onClick}>
+      onClick={props.onClick}
+      marginTop={props.marginTop}>
       {props.children}
     </StyledButton>
   );

@@ -5,6 +5,8 @@ interface ButtonProps {
   type?: "primary" | "secondary" | "destructive";
   width?: string;
   height?: string;
+  marginTop?: string;
+  marginBottom?: string;
 }
 
 export const StyledButton = styled.button<ButtonProps>`
@@ -22,6 +24,7 @@ export const StyledButton = styled.button<ButtonProps>`
     props.type === "secondary" ? props.theme.colors.buttons.primary : "#fff"};
   border: 0;
   outline: 0;
+  margin-top: ${(props) => props.marginTop};
   cursor: pointer;
   transition: all 0.3s;
   font-style: normal;
