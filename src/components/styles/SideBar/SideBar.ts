@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const SideBarStyled = styled.div`
   min-height: 100vh;
   width: 300px;
+  min-width: 300px;
   background-color: ${({ theme }) => theme.colors.background.primary};
-  border-right: 1px solid #818181;
+  /* border-right: 1px solid #8181  ; */
   h3 {
     color: ${({ theme }) => theme.colors.fonts.secondary};
     font-family: Plus Jakarta Sans;
@@ -31,9 +32,9 @@ export const SideBarMenu = styled.ul`
     cursor: pointer;
     transition: 0.3s;
     &:hover {
-      background-color: ${({ theme }) => theme.colors.buttons.primary};
+      background-color: ${({ theme }) => theme.colors.buttons.secondary};
     }
-    &:hover p {
+    /* &:hover p {
       color: ${({ theme }) => theme.colors.buttons.secondary};
     }
     &:hover img {
@@ -42,7 +43,7 @@ export const SideBarMenu = styled.ul`
 
     &:hover svg path {
       fill: white !important;
-    }
+    } */
 
     p {
       color: ${({ theme }) => theme.colors.buttons.primary};
@@ -73,18 +74,18 @@ export const SideBarMenu = styled.ul`
     cursor: pointer;
     transition: 0.3s;
     &:hover {
-      background-color: ${({ theme }) => theme.colors.buttons.primary};
+      background-color: ${({ theme }) => theme.colors.buttons.secondary};
     }
-    &:hover p {
+    /* &:hover p {
       color: ${({ theme }) => theme.colors.buttons.secondary};
-    }
-    &:hover img {
+    } */
+    /* &:hover img {
       color: ${({ theme }) => theme.colors.buttons.secondary};
-    }
+    } */
 
-    &:hover svg path {
+    /* &:hover svg path {
       fill: white !important;
-    }
+    } */
 
     p {
       color: ${({ theme }) => theme.colors.fonts.secondary};

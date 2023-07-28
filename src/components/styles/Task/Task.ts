@@ -9,6 +9,11 @@ export const StyledTask = styled.div`
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.101545);
   user-select: none;
+  transition: all 0.3s;
+  cursor: pointer;
+  &:hover p {
+    color: ${(props) => props.theme.colors.buttons.primary};
+  }
   p {
     font-family: "Plus Jakarta Sans";
     font-style: normal;
@@ -18,6 +23,7 @@ export const StyledTask = styled.div`
     /* identical to box height */
     /* Black */
     color: ${(props) => props.theme.colors.fonts.primary};
+    transition: all 0.3s;
   }
   span {
     font-family: "Plus Jakarta Sans";

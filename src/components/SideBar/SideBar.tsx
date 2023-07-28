@@ -1,10 +1,26 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { SideBarMenu, SideBarStyled } from "../styles/SideBar/SideBar";
 import { TodosContext } from "../../context/todosContext";
+import Button from "../Button/Button";
 
 const SideBar = () => {
-  const { setShowAddBoardModal, boards, selectedBoard, setSelectedBoard } =
-    useContext(TodosContext);
+  const {
+    setShowAddBoardModal,
+    boards,
+    selectedBoard,
+    setSelectedBoard,
+    setTheme,
+    theme,
+  } = useContext(TodosContext);
+
+  const themeToggler = () => {
+    setTheme((prev: any) => (prev === "light" ? "dark" : "light"));
+  };
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   return (
     <SideBarStyled>
       <h3>ALL BOARDS ({boards.length})</h3>
@@ -48,6 +64,15 @@ const SideBar = () => {
           </svg>
           <p>+ Create New Board</p>
         </h4>
+        <Button
+          disabled={false}
+          width={"200px"}
+          height={"40px"}
+          size={"s"}
+          type={"primary"}
+          onClick={themeToggler}>
+          toggle
+        </Button>
       </SideBarMenu>
     </SideBarStyled>
   );

@@ -10,13 +10,11 @@ import TaskModal from "./components/Modals/TaskModal/TaskModal";
 import { Empty } from "../src/components/styles/Columns/Columns";
 import SideBar from "./components/SideBar/SideBar";
 import AddBoardModal from "./components/Modals/AddBoardModal/AddBoardModal";
+import AddTaskModal from "./components/Modals/AddTask/AddTaskModal";
 
 function App() {
-  const { selectedTask, showAddBoardModal, boards } = useContext(TodosContext);
-  const [theme, setTheme] = useState("light");
-  const themeToggler = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-  };
+  const { selectedTask, showAddBoardModal, boards, theme, showAddTaskModal } =
+    useContext(TodosContext);
 
   return (
     <>
@@ -36,8 +34,7 @@ function App() {
                   width={"200px"}
                   height={"40px"}
                   size={"s"}
-                  type={"primary"}
-                  onClick={themeToggler}>
+                  type={"primary"}>
                   + Add New Column
                 </Button>
               </Empty>
@@ -45,15 +42,7 @@ function App() {
           </MainSection>
           {selectedTask && <TaskModal />}
           {showAddBoardModal && <AddBoardModal />}
-          <Button
-            disabled={false}
-            width={"200px"}
-            height={"40px"}
-            size={"s"}
-            type={"primary"}
-            onClick={themeToggler}>
-            toggle
-          </Button>
+          {showAddTaskModal && <AddTaskModal />}
         </ThemeProvider>
       </Fragment>
     </>

@@ -11,6 +11,7 @@ function Column({ column }: { column: any }) {
       <ColumnHeader colName={column.column}>
         <div></div>
         <p>{column.column}</p>
+        <p>({column.tasks.length})</p>
       </ColumnHeader>
       <TasksList>
         {column.tasks.map((task: any, index: any) => {
