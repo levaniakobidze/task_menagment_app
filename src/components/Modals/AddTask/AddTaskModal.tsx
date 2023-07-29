@@ -1,19 +1,31 @@
 import React, { useContext } from "react";
 import {
-  AddBoardModalInner,
-  AddBoardModalOverlay,
-} from "../../styles/AddBoardModal/AddBoardModal";
+  AddTaskModalOevrlay,
+  AddTaskModalInner,
+  AddTaskInputs,
+  Input,
+} from "../../styles/AddTaskModal/AddTaskModal";
 import { TodosContext } from "../../../context/todosContext";
 
 const AddTaskModal = () => {
   const { setShowAddTaskModal } = useContext(TodosContext);
 
   return (
-    <AddBoardModalOverlay onClick={() => setShowAddTaskModal(false)}>
-      <AddBoardModalInner>
-        <h2>asda</h2>
-      </AddBoardModalInner>
-    </AddBoardModalOverlay>
+    <AddTaskModalOevrlay onClick={() => setShowAddTaskModal(false)}>
+      <AddTaskModalInner onClick={(e) => e.stopPropagation()}>
+        <h2>Add New Task</h2>
+        <AddTaskInputs>
+          <Input>
+            <label htmlFor="board_name">Title</label>
+            <input type="text" placeholder="e.g. Web Design" />
+          </Input>
+          <Input>
+            <label htmlFor="board_name">Description</label>
+            <textarea placeholder="e.g. Web Design" />
+          </Input>
+        </AddTaskInputs>
+      </AddTaskModalInner>
+    </AddTaskModalOevrlay>
   );
 };
 
