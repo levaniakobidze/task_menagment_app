@@ -5,7 +5,7 @@ export const TodosContext = createContext<any | null>(null);
 const ContextProvider = ({ children }: any) => {
   const [selectedTask, setSelectedTask] = useState(false);
   const [showAddBoardModal, setShowAddBoardModal] = useState(false);
-  const [showAddTaskModal, setShowAddTaskModal] = useState(true);
+  const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [selectedBoard, setSelectedBoard] = useState(0);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 

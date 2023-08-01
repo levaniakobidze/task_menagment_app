@@ -85,3 +85,20 @@ export const Input = styled.div`
   flex-direction: column;
   margin-top: 10px;
 `;
+
+
+export const TaskInputs = styled.div`
+ div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  img {
+    padding: 16px;
+    cursor: pointer;
+  }
+  input {
+    width: 100%;
+  }
+`

@@ -9,7 +9,12 @@ import Button from "../Button/Button";
 import Logo from "../../assets/Logo.svg";
 import ArrowDown from "../../assets/arrow_down.svg";
 import MobileMenu from "../../assets/mobile_menu.svg";
-function Header() {
+import { useContext } from "react";
+import { TodosContext } from "../../context/todosContext";
+const Header = () => {
+
+  const {setShowAddTaskModal} = useContext(TodosContext)
+
   return (
     <StyledHeader>
       <LeftContainer>
@@ -22,6 +27,7 @@ function Header() {
       </LeftContainer>
       <RightContainer>
         <Button
+        onClick={() => setShowAddTaskModal(true)}
           disabled={false}
           width={"48px"}
           height={"32px"}
@@ -29,7 +35,7 @@ function Header() {
           type={"primary"}>
           +
         </Button>
-        <img src={MobileMenu} alt="menu" />
+        <img src={MobileMenu} alt="menu"  />
       </RightContainer>
     </StyledHeader>
   );
