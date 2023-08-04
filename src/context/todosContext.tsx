@@ -8,6 +8,7 @@ const ContextProvider = ({ children }: any) => {
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [selectedBoard, setSelectedBoard] = useState(0);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const [taskStatusIndex,setTaskStatusIndex] = useState(0)
 
   const [boards, setBoards] = useState([
     {
@@ -327,6 +328,8 @@ const ContextProvider = ({ children }: any) => {
         setTheme,
         showAddTaskModal,
         setShowAddTaskModal,
+        taskStatusIndex,
+        setTaskStatusIndex
       }}>
       {children}
     </TodosContext.Provider>

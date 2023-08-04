@@ -38,10 +38,10 @@ const AddBoardModal = () => {
     columns: [{ columnId: Number(generateRandomID(8)), column: "", tasks: [] }],
   });
 
-  useEffect(() => {
-    const body = document.body;
-    body.style.overflow = "hidden";
-  }, []);
+  // useEffect(() => {
+  //   const body = document.body;
+  //   body.style.overflow = "hidden";
+  // }, []);
 
   useEffect(() => {
     setNewBoard({ ...newBoard, board_name: boardName });

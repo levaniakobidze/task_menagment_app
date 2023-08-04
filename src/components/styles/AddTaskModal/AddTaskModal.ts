@@ -102,3 +102,17 @@ export const TaskInputs = styled.div`
     width: 100%;
   }
 `
+
+
+export const SelectBox  = styled.div`
+margin-top: 10px;
+p{
+  color: ${({theme}) => theme.colors.fonts.primary};
+font-family: Plus Jakarta Sans;
+font-size: 12px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+margin-bottom: 8px;
+}
+`

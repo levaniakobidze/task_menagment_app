@@ -10,10 +10,10 @@ import { TodosContext } from "../../../context/todosContext";
 const TaskModal = () => {
   const { selectedTask, setSelectedTask } = useContext(TodosContext);
 
-  useEffect(() => {
-    const body = document.body;
-    body.style.overflow = "hidden";
-  }, []);
+  // useEffect(() => {
+  //   const body = document.body;
+  //   body.style.overflow = "hidden";
+  // }, []);
 
   return (
     <TaskModalOverlay onClick={() => setSelectedTask(false)}>
