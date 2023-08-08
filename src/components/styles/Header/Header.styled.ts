@@ -36,5 +36,6 @@ export const RightContainer = styled.div`
   align-items: center;
   img {
     margin-left: 16px;
+    cursor: pointer;
   }
 `;

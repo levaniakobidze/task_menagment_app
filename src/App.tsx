@@ -11,10 +11,17 @@ import { Empty } from "../src/components/styles/Columns/Columns";
 import SideBar from "./components/SideBar/SideBar";
 import AddBoardModal from "./components/Modals/AddBoardModal/AddBoardModal";
 import AddTaskModal from "./components/Modals/AddTask/AddTaskModal";
+import EditBoardModal from "./components/Modals/EditBoardModal/EditBoardModal";
 
 function App() {
-  const { selectedTask, showAddBoardModal, boards, theme, showAddTaskModal } =
-    useContext(TodosContext);
+  const {
+    selectedTask,
+    showAddBoardModal,
+    boards,
+    theme,
+    showAddTaskModal,
+    showEditBoardModal,
+  } = useContext(TodosContext);
 
   return (
     <>
@@ -34,7 +41,8 @@ function App() {
                   width={"200px"}
                   height={"40px"}
                   size={"s"}
-                  type={"primary"}>
+                  type={"primary"}
+                >
                   + Add New Column
                 </Button>
               </Empty>
@@ -43,6 +51,7 @@ function App() {
           {selectedTask && <TaskModal />}
           {showAddBoardModal && <AddBoardModal />}
           {showAddTaskModal && <AddTaskModal />}
+          {showEditBoardModal && <EditBoardModal />}
         </ThemeProvider>
       </Fragment>
     </>

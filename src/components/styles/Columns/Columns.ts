@@ -23,8 +23,10 @@ export const EmptyColumnsCont = styled.div`
 export const WithColomnsCont = styled.div`
   display: flex;
   gap: 24px;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
+  overflow: scroll;
   padding: 24px 16px;
+  height: 100vh;
   &::-webkit-scrollbar {
     display: none;
   }

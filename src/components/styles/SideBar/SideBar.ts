@@ -2,10 +2,9 @@ import styled from "styled-components";
 
 export const SideBarStyled = styled.div`
   min-height: 100vh;
-  width: 300px;
-  min-width: 300px;
+  min-width: 260px;
   background-color: ${({ theme }) => theme.colors.background.primary};
-  /* border-right: 1px solid #8181  ; */
+  /* border-right: 1px solid #b5b5; */
   h3 {
     color: ${({ theme }) => theme.colors.fonts.secondary};
     font-family: Plus Jakarta Sans;
@@ -16,6 +15,9 @@ export const SideBarStyled = styled.div`
     letter-spacing: 2.4px;
     margin-left: 32px;
     padding-top: 15px;
+  }
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 

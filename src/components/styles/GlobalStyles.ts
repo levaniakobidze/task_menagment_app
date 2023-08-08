@@ -21,6 +21,9 @@ export const GlobalStyles = createGlobalStyle`
     width: 100%;
     background: ${(props: any) => props.theme.colors.background.secondary};
     font-family: 'Plus Jakarta Sans', sans-serif;
+    &::-webkit-scrollbar {
+    display: none;
+  }
   }
   .activeBoard{
     background-color: ${({ theme }) => theme.colors.buttons.primary} !important;

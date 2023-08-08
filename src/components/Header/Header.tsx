@@ -12,8 +12,8 @@ import MobileMenu from "../../assets/mobile_menu.svg";
 import { useContext } from "react";
 import { TodosContext } from "../../context/todosContext";
 const Header = () => {
-
-  const {setShowAddTaskModal} = useContext(TodosContext)
+  const { setShowAddTaskModal, setShowEditBoardModal } =
+    useContext(TodosContext);
 
   return (
     <StyledHeader>
@@ -27,18 +27,23 @@ const Header = () => {
       </LeftContainer>
       <RightContainer>
         <Button
-        onClick={() => setShowAddTaskModal(true)}
+          onClick={() => setShowAddTaskModal(true)}
           disabled={false}
           width={"48px"}
           height={"32px"}
           size={"l"}
-          type={"primary"}>
+          type={"primary"}
+        >
           +
         </Button>
-        <img src={MobileMenu} alt="menu"  />
+        <img
+          onClick={() => setShowEditBoardModal(true)}
+          src={MobileMenu}
+          alt="menu"
+        />
       </RightContainer>
     </StyledHeader>
   );
-}
+};
 
 export default Header;
