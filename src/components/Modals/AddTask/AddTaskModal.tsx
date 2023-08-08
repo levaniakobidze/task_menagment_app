@@ -26,8 +26,15 @@ function generateRandomID(length: number) {
 }
 
 const AddTaskModal = () => {
-  const { setShowAddTaskModal, selectedBoard, setBoards, boards, theme,taskStatusIndex,setTaskStatusIndex } =
-    useContext(TodosContext);
+  const {
+    setShowAddTaskModal,
+    selectedBoard,
+    setBoards,
+    boards,
+    theme,
+    taskStatusIndex,
+    setTaskStatusIndex,
+  } = useContext(TodosContext);
   const [subtaskTitle, setSubtaskTitle] = useState("");
   const [subtaskDescription, setSubtaskDescription] = useState("");
   const [options, setOptions] = useState<any>([]);
@@ -56,7 +63,7 @@ const AddTaskModal = () => {
   const addNewSubTask = () => {
     const newSubtask = {
       sub_task_id: generateRandomID(8),
-      sub_task_title: "ok ",
+      sub_task_title: "ok",
       sub_completed: false,
     };
     setNewTask({ ...newTask, sub_tasks: [...newTask.sub_tasks, newSubtask] });
@@ -98,10 +105,12 @@ const AddTaskModal = () => {
   };
 
   useEffect(() => {
-    const columns = boards[selectedBoard].columns
-    setOptions(() => columns.map((column:any,index:any) => {
-      return  { value: index, label: column.column }
-    } ));
+    const columns = boards[selectedBoard].columns;
+    setOptions(() =>
+      columns.map((column: any, index: any) => {
+        return { value: index, label: column.column };
+      })
+    );
   }, []);
 
   const selectStyles = {
@@ -114,9 +123,9 @@ const AddTaskModal = () => {
     }),
   };
 
-  const handleSelectChange = (selectedOption:any) => {
-    setTaskStatusIndex(selectedOption.value)
-  }
+  const handleSelectChange = (selectedOption: any) => {
+    setTaskStatusIndex(selectedOption.value);
+  };
 
   return (
     <AddTaskModalOevrlay onClick={() => setShowAddTaskModal(false)}>
