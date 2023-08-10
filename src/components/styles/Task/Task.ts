@@ -64,6 +64,10 @@ export const TaskModalInner = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
   }
   p {
     color: ${({ theme }) => theme.colors.fonts.secondary};

@@ -6,9 +6,15 @@ import {
   SubTaskCont,
 } from "../../styles/Task/Task";
 import { TodosContext } from "../../../context/todosContext";
+import MenuIcon from "../../../assets/mobile_menu.svg";
 
 const TaskModal = () => {
-  const { selectedTask, setSelectedTask } = useContext(TodosContext);
+  const {
+    selectedTask,
+    setShowTaskModal,
+    setSelectedTask,
+    setShowEditTaskModal,
+  } = useContext(TodosContext);
 
   // useEffect(() => {
   //   const body = document.body;
@@ -16,9 +22,24 @@ const TaskModal = () => {
   // }, []);
 
   return (
-    <TaskModalOverlay onClick={() => setSelectedTask(false)}>
+    <TaskModalOverlay
+      onClick={() => {
+        setShowTaskModal(false);
+        setSelectedTask(false);
+      }}
+    >
       <TaskModalInner onClick={(e) => e.stopPropagation()}>
-        <h3> {selectedTask.title}</h3>
+        <h3>
+          {selectedTask.title}
+          <img
+            src={MenuIcon}
+            alt="dots"
+            onClick={() => {
+              setShowTaskModal(false);
+              setShowEditTaskModal(true);
+            }}
+          />
+        </h3>
         <p>{selectedTask.description}</p>
         <SubTasksInner>
           <p>Subtasks (0 of {selectedTask.sub_tasks.length})</p>

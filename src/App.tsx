@@ -12,15 +12,17 @@ import SideBar from "./components/SideBar/SideBar";
 import AddBoardModal from "./components/Modals/AddBoardModal/AddBoardModal";
 import AddTaskModal from "./components/Modals/AddTask/AddTaskModal";
 import EditBoardModal from "./components/Modals/EditBoardModal/EditBoardModal";
+import EditTaskModal from "./components/Modals/EditTaskModal/EditTaskModal";
 
 function App() {
   const {
-    selectedTask,
     showAddBoardModal,
     boards,
     theme,
     showAddTaskModal,
     showEditBoardModal,
+    showEditTaskModal,
+    showTaskModal,
   } = useContext(TodosContext);
 
   return (
@@ -48,10 +50,11 @@ function App() {
               </Empty>
             )}
           </MainSection>
-          {selectedTask && <TaskModal />}
+          {showTaskModal && <TaskModal />}
           {showAddBoardModal && <AddBoardModal />}
           {showAddTaskModal && <AddTaskModal />}
           {showEditBoardModal && <EditBoardModal />}
+          {showEditTaskModal && <EditTaskModal />}
         </ThemeProvider>
       </Fragment>
     </>
