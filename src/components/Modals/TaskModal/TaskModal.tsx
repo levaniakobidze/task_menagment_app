@@ -30,7 +30,7 @@ const TaskModal = () => {
     >
       <TaskModalInner onClick={(e) => e.stopPropagation()}>
         <h3>
-          {selectedTask.title}
+          {selectedTask.task.title}
           <img
             src={MenuIcon}
             alt="dots"
@@ -40,10 +40,10 @@ const TaskModal = () => {
             }}
           />
         </h3>
-        <p>{selectedTask.description}</p>
+        <p>{selectedTask.task.description}</p>
         <SubTasksInner>
-          <p>Subtasks (0 of {selectedTask.sub_tasks.length})</p>
-          {selectedTask.sub_tasks.map((subtask: any, index: number) => {
+          <p>Subtasks (0 of {selectedTask.task.sub_tasks.length})</p>
+          {selectedTask.task.sub_tasks.map((subtask: any, index: number) => {
             return (
               <SubTaskCont key={index}>
                 <input type="checkbox" />

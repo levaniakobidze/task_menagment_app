@@ -17,7 +17,8 @@ const Columns = () => {
             width={"200px"}
             height={"40px"}
             size={"s"}
-            type={"primary"}>
+            type={"primary"}
+          >
             + Add New Column
           </Button>
         </EmptyColumnsCont>
@@ -25,7 +26,7 @@ const Columns = () => {
         <WithColomnsCont>
           {boards[selectedBoard].columns &&
             boards[selectedBoard].columns?.map((column: any, index: number) => {
-              return <Column column={column} key={index} />;
+              return <Column index={index} column={column} key={index} />;
             })}
         </WithColomnsCont>
       )}

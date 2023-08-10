@@ -1,10 +1,18 @@
 import { StyledTask } from "../styles/Task/Task";
 import { useContext } from "react";
 import { TodosContext } from "../../context/todosContext";
-const Task = ({ task }: { task: any }) => {
+const Task = ({
+  task,
+  columnIndex,
+  taskIndex,
+}: {
+  task: any;
+  columnIndex: number;
+  taskIndex: number;
+}) => {
   const { setSelectedTask, setShowTaskModal } = useContext(TodosContext);
   const showTaskHandler = (task: any) => {
-    setSelectedTask(task);
+    setSelectedTask({ task, columnIndex, taskIndex });
     setShowTaskModal(true);
   };
 

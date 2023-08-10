@@ -36,6 +36,9 @@ const EditTaskModal = () => {
     setTaskStatusIndex,
     selectedTask,
     showEditTaskModal,
+    setShowTaskModal,
+    setShowEditTaskModal,
+    setSelectedTask,
   } = useContext(TodosContext);
   const [taskTitle, setTaskTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -66,20 +69,18 @@ const EditTaskModal = () => {
   //   });
 
   useEffect(() => {
-    setTaskToEdit(selectedTask);
-    setTaskTitle(selectedTask.title);
-    setDescription(selectedTask.description);
+    setTaskToEdit(selectedTask.task);
+    setTaskTitle(selectedTask.task.title);
+    setDescription(selectedTask.task.description);
   }, [showEditTaskModal]);
 
-  console.log(taskToEdit.sub_tasks);
-
-  useEffect(() => {
-    setTaskToEdit({ ...taskToEdit, title: taskTitle });
-  }, [taskTitle]);
+  //   useEffect(() => {
+  //     setTaskToEdit({ ...taskToEdit, title: taskTitle });
+  //   }, [taskTitle]);
   /////
-  useEffect(() => {
-    setTaskToEdit({ ...taskToEdit, description: description });
-  }, [description]);
+  //   useEffect(() => {
+  //     setTaskToEdit({ ...taskToEdit, description: description });
+  //   }, [description]);
 
   //  Function to add new  sub task
   const addNewSubTask = () => {
@@ -114,21 +115,6 @@ const EditTaskModal = () => {
     setTaskToEdit({ ...taskToEdit, sub_tasks: updatedSubtasks });
   };
 
-  // Function to add new task
-
-  const handleAddNewTask = () => {
-    //
-    const updatedBoards = boards;
-    updatedBoards[selectedBoard].columns[taskStatusIndex].tasks = [
-      ...updatedBoards[selectedBoard].columns[taskStatusIndex].tasks,
-      taskToEdit,
-    ];
-    setBoards(updatedBoards);
-    setShowAddTaskModal(false);
-
-    // console.log(updatedBoards[selectedBoard].columns[0])
-  };
-
   useEffect(() => {
     const columns = boards[selectedBoard].columns;
     setOptions(() =>
@@ -152,16 +138,37 @@ const EditTaskModal = () => {
     setTaskStatusIndex(selectedOption.value);
   };
 
+  const handleEditTask = () => {
+    const updated = boards;
+
+    updated[selectedBoard].columns[selectedTask.columnIndex].tasks[
+      selectedTask.taskIndex
+    ] = taskToEdit;
+
+    setSelectedTask({ ...selectedTask, task: taskToEdit });
+    setBoards(updated);
+
+    setShowEditTaskModal(false);
+    setShowTaskModal(true);
+  };
+
   return (
-    <AddTaskModalOevrlay onClick={() => setShowAddTaskModal(false)}>
+    <AddTaskModalOevrlay
+      onClick={() => {
+        setShowEditTaskModal(false);
+        setShowTaskModal(true);
+      }}
+    >
       <AddTaskModalInner onClick={(e) => e.stopPropagation()}>
         <h2>Add New Task</h2>
         <AddTaskInputs>
           <Input>
             <label htmlFor="board_name">Title</label>
             <input
-              value={taskTitle}
-              onChange={(e) => setTaskTitle(e.target.value)}
+              value={taskToEdit.title}
+              onChange={(e) =>
+                setTaskToEdit({ ...taskToEdit, title: e.target.value })
+              }
               type="text"
               placeholder="e.g. Web Design"
             />
@@ -169,8 +176,10 @@ const EditTaskModal = () => {
           <Input>
             <label htmlFor="board_name">Description</label>
             <textarea
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              value={taskToEdit.description}
+              onChange={(e) => {
+                setTaskToEdit({ ...taskToEdit, description: e.target.value });
+              }}
               placeholder="e.g. It’s always good to take a break. This 15 minute break will 
 recharge the batteries a little."
             />
@@ -224,7 +233,7 @@ recharge the batteries a little."
               height={"40px"}
               size={"s"}
               type={"primary"}
-              onClick={handleAddNewTask}
+              onClick={handleEditTask}
             >
               Edit task
             </Button>
