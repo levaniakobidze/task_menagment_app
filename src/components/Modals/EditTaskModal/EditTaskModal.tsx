@@ -55,32 +55,12 @@ const EditTaskModal = () => {
       },
     ],
   });
-  //   const [newTask, setNewTask] = useState<any>({
-  //     cardId: generateRandomID(8),
-  //     title: "",
-  //     description: "",
-  //     sub_tasks: [
-  //       {
-  //         sub_task_id: generateRandomID(8),
-  //         sub_task_title: "Hello",
-  //         sub_completed: false,
-  //       },
-  //     ],
-  //   });
 
   useEffect(() => {
     setTaskToEdit(selectedTask.task);
     setTaskTitle(selectedTask.task.title);
     setDescription(selectedTask.task.description);
   }, [showEditTaskModal]);
-
-  //   useEffect(() => {
-  //     setTaskToEdit({ ...taskToEdit, title: taskTitle });
-  //   }, [taskTitle]);
-  /////
-  //   useEffect(() => {
-  //     setTaskToEdit({ ...taskToEdit, description: description });
-  //   }, [description]);
 
   //  Function to add new  sub task
   const addNewSubTask = () => {
