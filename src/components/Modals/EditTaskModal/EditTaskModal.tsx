@@ -114,6 +114,7 @@ const EditTaskModal = () => {
     }),
   };
 
+  // Function to select value from select input box
   const handleSelectChange = (selectedOption: any) => {
     setTaskStatusIndex(selectedOption.value);
   };
