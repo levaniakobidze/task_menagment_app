@@ -119,6 +119,7 @@ const EditTaskModal = () => {
     setTaskStatusIndex(selectedOption.value);
   };
 
+  // Function to edit task
   const handleEditTask = () => {
     const updated = boards;
 
