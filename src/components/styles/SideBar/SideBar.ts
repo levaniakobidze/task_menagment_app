@@ -1,10 +1,19 @@
 import styled from "styled-components";
 
 export const SideBarStyled = styled.div`
-  min-height: 100vh;
   min-width: 260px;
   background-color: ${({ theme }) => theme.colors.background.primary};
   /* border-right: 1px solid #b5b5; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const SideBarMenu = styled.ul`
   h3 {
     color: ${({ theme }) => theme.colors.fonts.secondary};
     font-family: Plus Jakarta Sans;
@@ -15,14 +24,8 @@ export const SideBarStyled = styled.div`
     letter-spacing: 2.4px;
     margin-left: 32px;
     padding-top: 15px;
+    padding-bottom: 15px;
   }
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-
-export const SideBarMenu = styled.ul`
-  margin-top: 19px;
   h4 {
     width: 90%;
     border-top-right-radius: 100px;
@@ -105,5 +108,20 @@ export const SideBarMenu = styled.ul`
       transition: 0.3s;
       fill: ${({ theme }) => theme.colors.fonts.secondary} !important;
     }
+  }
+`;
+
+export const ThemeSwitcher = styled.div`
+  background-color: ${({ theme }) => theme.colors.background.secondary};
+  margin: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 8px;
+  padding: 10px;
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: #828fa3;
   }
 `;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const EmptyColumnsCont = styled.div`
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -26,7 +26,6 @@ export const WithColomnsCont = styled.div`
   /* overflow-x: scroll; */
   overflow: scroll;
   padding: 24px 16px;
-  height: 100vh;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -34,7 +33,6 @@ export const WithColomnsCont = styled.div`
 
 export const StyledColumn = styled.div`
   min-width: 240px;
-  height: 100vh;
 `;
 export const ColumnHeader = styled.div`
   display: flex;

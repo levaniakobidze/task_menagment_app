@@ -1,7 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { SideBarMenu, SideBarStyled } from "../styles/SideBar/SideBar";
+import {
+  SideBarMenu,
+  SideBarStyled,
+  ThemeSwitcher,
+} from "../styles/SideBar/SideBar";
 import { TodosContext } from "../../context/todosContext";
 import Button from "../Button/Button";
+import { BsMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 
 const SideBar = () => {
   const {
@@ -23,20 +28,22 @@ const SideBar = () => {
 
   return (
     <SideBarStyled>
-      <h3>ALL BOARDS ({boards.length})</h3>
       <SideBarMenu>
+        <h3>ALL BOARDS ({boards.length})</h3>
         {boards.map((board: any, index: number) => {
           return (
             <li
               key={index}
               onClick={() => setSelectedBoard(index)}
-              className={selectedBoard === index ? "activeBoard" : ""}>
+              className={selectedBoard === index ? "activeBoard" : ""}
+            >
               <svg
                 width="16"
                 height="16"
                 viewBox="0 0 16 16"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   fillRule="evenodd"
                   clipRule="evenodd"
@@ -54,7 +61,8 @@ const SideBar = () => {
             height="16"
             viewBox="0 0 16 16"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               fillRule="evenodd"
               clipRule="evenodd"
@@ -64,16 +72,22 @@ const SideBar = () => {
           </svg>
           <p>+ Create New Board</p>
         </h4>
-        <Button
-          disabled={false}
-          width={"200px"}
-          height={"40px"}
-          size={"s"}
-          type={"primary"}
-          onClick={themeToggler}>
-          toggle
-        </Button>
       </SideBarMenu>
+      <ThemeSwitcher>
+        <BsFillSunFill />
+        <div className="switch switch--rounded" data-id="swicth">
+          <input
+            onClick={themeToggler}
+            type="checkbox"
+            id="checkbox-rounded"
+            className="switch__input"
+            data-type="checkbox"
+            checked={theme == "dark" ? true : false}
+          />
+          <label htmlFor="checkbox-rounded" className="switch__thumb"></label>
+        </div>
+        <BsMoonStarsFill />
+      </ThemeSwitcher>
     </SideBarStyled>
   );
 };
