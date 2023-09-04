@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import {
   TaskModalOverlay,
   TaskModalInner,
@@ -7,6 +7,8 @@ import {
 } from "../../styles/Task/Task";
 import { TodosContext } from "../../../context/todosContext";
 import MenuIcon from "../../../assets/mobile_menu.svg";
+import { SelectBox } from "../../styles/AddTaskModal/AddTaskModal";
+import Select from "react-select";
 
 const TaskModal = () => {
   const {
@@ -14,12 +16,51 @@ const TaskModal = () => {
     setShowTaskModal,
     setSelectedTask,
     setShowEditTaskModal,
+    selectedBoard,
+    boards,
+    theme,
   } = useContext(TodosContext);
+  const [options, setOptions] = useState<any>([]);
+  const column = boards[selectedBoard].columns[selectedTask.columnIndex];
 
   // useEffect(() => {
   //   const body = document.body;
   //   body.style.overflow = "hidden";
   // }, []);
+
+  useEffect(() => {
+    const columns = boards[selectedBoard].columns;
+    setOptions(() =>
+      columns.map((column: any, index: any) => {
+        return { value: index, label: column.column };
+      })
+    );
+  }, []);
+
+  const selectStyles = {
+    control: (baseStyles: any, state: any) => ({
+      ...baseStyles,
+
+      "& input::placeholder": {
+        color: "red",
+      },
+      background: theme === "dark" ? "#2B2C37" : "#fff",
+      outline: "none",
+      border: "1px solid rgba(130, 143, 163, 0.25)",
+      borderRadius: "4px",
+    }),
+  };
+
+  const handleSelectChange = (selectedOption: any) => {
+    const colIndex = selectedOption.value;
+    const columns = boards[selectedBoard].columns;
+    columns[colIndex].tasks.push(selectedTask.task);
+    //////////////////////////
+    boards[selectedBoard].columns[selectedTask.columnIndex].tasks = columns[
+      selectedTask.columnIndex
+    ].tasks.filter((task: any) => task.cardId !== selectedTask.task.cardId);
+    /////////////////////////
+  };
 
   return (
     <TaskModalOverlay
@@ -52,6 +93,18 @@ const TaskModal = () => {
             );
           })}
         </SubTasksInner>
+        <SelectBox>
+          <p>Status</p>
+          <Select
+            styles={selectStyles}
+            defaultValue={{
+              value: selectedTask.columnIndex,
+              label: column.column,
+            }}
+            onChange={handleSelectChange}
+            options={options}
+          />
+        </SelectBox>
       </TaskModalInner>
     </TaskModalOverlay>
   );

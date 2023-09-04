@@ -5,7 +5,7 @@ import {
 } from "../styles/Columns/Columns";
 import Task from "../Task/Task";
 
-function Column({ column, index }: { column: any; index: number }) {
+function Column({ column, colIndex }: { column: any; colIndex: number }) {
   return (
     <StyledColumn>
       <ColumnHeader colName={column.column}>
@@ -17,7 +17,7 @@ function Column({ column, index }: { column: any; index: number }) {
         {column.tasks.map((task: any, index: any) => {
           return (
             <Task
-              columnIndex={index}
+              columnIndex={colIndex}
               taskIndex={index}
               task={task}
               key={index}

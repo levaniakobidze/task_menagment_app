@@ -26,7 +26,7 @@ const Columns = () => {
         <WithColomnsCont>
           {boards[selectedBoard].columns &&
             boards[selectedBoard].columns?.map((column: any, index: number) => {
-              return <Column index={index} column={column} key={index} />;
+              return <Column colIndex={index} column={column} key={index} />;
             })}
         </WithColomnsCont>
       )}

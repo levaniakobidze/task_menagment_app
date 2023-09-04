@@ -12,6 +12,7 @@ const Task = ({
 }) => {
   const { setSelectedTask, setShowTaskModal } = useContext(TodosContext);
   const showTaskHandler = (task: any) => {
+    console.log(columnIndex, "column index");
     setSelectedTask({ task, columnIndex, taskIndex });
     setShowTaskModal(true);
   };
