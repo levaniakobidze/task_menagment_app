@@ -37,6 +37,7 @@ const TaskModal = () => {
     );
   }, []);
 
+  // Custom select styles
   const selectStyles = {
     control: (baseStyles: any, state: any) => ({
       ...baseStyles,

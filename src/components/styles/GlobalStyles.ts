@@ -181,7 +181,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 }
 
-input {
+/* input {
 	display: block;
 	width: 200px;
 
@@ -192,5 +192,5 @@ input {
 	border: 1px solid #ddd;
 
 	border-radius: 0.4rem;
-}
+} */
 `;

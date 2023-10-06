@@ -124,7 +124,8 @@ const AddBoardModal = () => {
               height={"40px"}
               size={"s"}
               type={"secondary"}
-              onClick={AddNewColumn}>
+              onClick={AddNewColumn}
+            >
               + Add New Column
             </Button>
             <Button
@@ -134,7 +135,8 @@ const AddBoardModal = () => {
               height={"40px"}
               size={"s"}
               type={"primary"}
-              onClick={createBoard}>
+              onClick={createBoard}
+            >
               Create New Board
             </Button>
           </div>
