@@ -29,8 +29,7 @@ function generateRandomID(length: number) {
 }
 
 const AddBoardModal = () => {
-  const { showAddBoardModal, setShowAddBoardModal, boards, setBoards } =
-    useContext(TodosContext);
+  const { setShowAddBoardModal, boards, setBoards } = useContext(TodosContext);
   const [boardName, setBoardName] = useState("");
   const [newBoard, setNewBoard] = useState<InewBoard>({
     boradId: 1,

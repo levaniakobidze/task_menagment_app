@@ -9,11 +9,11 @@ import { TodosContext } from "../../../context/todosContext";
 import XIcon from "../../../assets/x.svg";
 import Button from "../../Button/Button";
 
-interface InewBoard {
-  boradId: number;
-  board_name: string;
-  columns: any[];
-}
+// interface InewBoard {
+//   boradId: number;
+//   board_name: string;
+//   columns: any[];
+// }
 
 // Function to generate random ID
 function generateRandomID(length: number) {

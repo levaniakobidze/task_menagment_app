@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext } from "react";
 import { GlobalStyles, MainSection } from "./components/styles/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { LightTheme, DarkTheme } from "./components/styles/Theme";

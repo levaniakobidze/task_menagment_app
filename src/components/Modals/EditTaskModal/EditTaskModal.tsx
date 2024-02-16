@@ -27,12 +27,10 @@ function generateRandomID(length: number) {
 
 const EditTaskModal = () => {
   const {
-    setShowAddTaskModal,
     selectedBoard,
     setBoards,
     boards,
     theme,
-    taskStatusIndex,
     setTaskStatusIndex,
     selectedTask,
     showEditTaskModal,
@@ -55,6 +53,8 @@ const EditTaskModal = () => {
       },
     ],
   });
+  console.log(taskTitle);
+  console.log(description);
 
   useEffect(() => {
     setTaskToEdit(selectedTask.task);
@@ -105,7 +105,7 @@ const EditTaskModal = () => {
   }, []);
 
   const selectStyles = {
-    control: (baseStyles: any, state: any) => ({
+    control: (baseStyles: any) => ({
       ...baseStyles,
       background: theme === "dark" ? "#2B2C37" : "#fff",
       outline: "none",

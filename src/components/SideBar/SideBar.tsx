@@ -1,11 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import {
   SideBarMenu,
   SideBarStyled,
   ThemeSwitcher,
 } from "../styles/SideBar/SideBar";
 import { TodosContext } from "../../context/todosContext";
-import Button from "../Button/Button";
+// import Button from "../Button/Button";
 import { BsMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 
 const SideBar = () => {

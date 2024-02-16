@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useContext, useEffect, useState } from "react";
 import {
   AddTaskModalOevrlay,
@@ -114,7 +115,7 @@ const AddTaskModal = () => {
   }, []);
 
   const selectStyles = {
-    control: (baseStyles: any, state: any) => ({
+    control: (baseStyles: any) => ({
       ...baseStyles,
       background: theme === "dark" ? "#2B2C37" : "#fff",
       outline: "none",

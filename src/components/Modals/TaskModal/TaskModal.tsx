@@ -39,7 +39,7 @@ const TaskModal = () => {
 
   // Custom select styles
   const selectStyles = {
-    control: (baseStyles: any, state: any) => ({
+    control: (baseStyles: any) => ({
       ...baseStyles,
 
       "& input::placeholder": {
@@ -85,7 +85,7 @@ const TaskModal = () => {
         <p>{selectedTask.task.description}</p>
         <SubTasksInner>
           <p>Subtasks (0 of {selectedTask.task.sub_tasks.length})</p>
-          {selectedTask.task.sub_tasks.map((subtask: any, index: number) => {
+          {selectedTask.task.sub_tasks.map((index: number) => {
             return (
               <SubTaskCont key={index}>
                 <input type="checkbox" />

@@ -311,7 +311,7 @@ const ContextProvider = ({ children }: any) => {
   ]);
 
   // const [columns, setColumns] = useState<any>([]);
-  const addColumn = (newColumn: any) => {
+  const addColumn = () => {
     // setColumns([...columns, newColumn]);
   };
 
